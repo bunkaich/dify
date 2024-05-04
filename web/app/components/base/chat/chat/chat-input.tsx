@@ -81,23 +81,21 @@ const ChatInput: FC<ChatInputProps> = ({
       onClear()
     }
   }
-
+  
   const handleKeyUp = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    if (e.code === 'Enter') {
-      e.preventDefault()
-      // prevent send message when using input method enter
-      if (!e.shiftKey && !isUseInputMethod.current)
-        handleSend()
+    if (e.code === "Enter" && e.shiftKey) {
+      e.preventDefault();
+      handleSend();
     }
-  }
+  };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    isUseInputMethod.current = e.nativeEvent.isComposing
-    if (e.code === 'Enter' && !e.shiftKey) {
-      setQuery(query.replace(/\n$/, ''))
-      e.preventDefault()
+    isUseInputMethod.current = e.nativeEvent.isComposing;
+    if (e.code === "Enter" && e.shiftKey && !isUseInputMethod.current) {
+      setQuery(query.replace(/\n$/, ""));
+      e.preventDefault();
     }
-  }
+  };
 
   const logError = (message: string) => {
     notify({ type: 'error', message, duration: 3000 })
