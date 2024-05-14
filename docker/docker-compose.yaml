@@ -255,7 +255,7 @@ services:
       # The milvus tls switch.
       MILVUS_SECURE: 'false'
       # Mail configuration, support: resend
-      MAIL_TYPE: ''
+      MAIL_TYPE: 'resend'
       # default send from email address, if not specified
       MAIL_DEFAULT_SEND_FROM: 'YOUR EMAIL FROM (eg: no-reply <no-reply@dify.ai>)'
       SMTP_SERVER: ''
@@ -264,7 +264,7 @@ services:
       SMTP_PASSWORD: ''
       SMTP_USE_TLS: 'true'
       # the api-key for resend (https://resend.com)
-      RESEND_API_KEY: ''
+      RESEND_API_KEY: 're_Qz3gW4yH_5TZZgfYJUHU98eUj2tZUqapw'
       RESEND_API_URL: https://api.resend.com
       # relyt configurations
       RELYT_HOST: db
@@ -279,10 +279,8 @@ services:
       PGVECTOR_PASSWORD: difyai123456
       PGVECTOR_DATABASE: dify
       # Notion import configuration, support public and internal
-      NOTION_INTEGRATION_TYPE: public
-      NOTION_CLIENT_SECRET: you-client-secret
-      NOTION_CLIENT_ID: you-client-id
-      NOTION_INTERNAL_SECRET: you-internal-secret
+      NOTION_INTEGRATION_TYPE: internal
+      NOTION_INTERNAL_SECRET: 'secret_25AA4HzrIf06GDO6x1vMZr6Rjlp6aIuRcDSki1hoKyK'
     depends_on:
       - db
       - redis
